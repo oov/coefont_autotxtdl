@@ -1,3 +1,24 @@
+function getName(blockRoot) {
+  if (!blockRoot) {
+    return undefined;
+  }
+  const blockHeader = blockRoot.querySelector('[class*=Block_blockHeaderRoot__]');
+  if (!blockHeader) {
+    return undefined;
+  }
+  // 画面幅がPC用のとき
+  const name = blockHeader.querySelector('[class*=SelectCoefont_name__]');
+  if (name) {
+    return name.innerText;
+  }
+  // 画面幅がモバイル用のとき
+  const mobile_name = blockHeader.querySelector('[class*=Block_mobileName__]');
+  if (mobile_name) {
+    return mobile_name.innerText;
+  }
+  return undefined;
+}
+
 document.body.addEventListener('click', e => {
   const button = e.target.closest('[class*=IconButton_button__]:nth-of-type(2)');
   if (!button) {
@@ -14,15 +35,14 @@ document.body.addEventListener('click', e => {
   if (!block) {
     return;
   }
-  const mobile_name = block.querySelector('[class*=Block_mobileName__]');
-  if (!mobile_name) {
+  const name = getName(block);
+  if (!name) {
     return;
   }
   const textarea = container.querySelector('[class*=SentenceEditor_textarea__]');
   if (!textarea) {
     return;
   }
-  const name = mobile_name.innerText;
   const text = textarea.innerText;
   chrome.runtime.sendMessage({ name, text });
 }, true);

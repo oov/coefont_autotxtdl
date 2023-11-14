@@ -1,7 +1,7 @@
 {
   "content_scripts": [
     {
-      "matches": ["https://coefont.cloud/editor/*"],
+      "matches": ["https://coefont.cloud/*"],
       "js": ["content-script.js"]
     }
   ],

@@ -20,7 +20,7 @@ function getName(blockRoot) {
 }
 
 document.body.addEventListener('click', e => {
-  const button = e.target.closest('[class*=IconButton_button__]:nth-of-type(2)');
+  const button = e.target.closest('[class*=IconButton_button__]:nth-of-type(1)');
   if (!button) {
     return;
   }
@@ -39,7 +39,7 @@ document.body.addEventListener('click', e => {
   if (!name) {
     return;
   }
-  const textarea = container.querySelector('[class*=SentenceEditor_textarea__]');
+  const textarea = container.querySelector('[class*=SentenceEditor_editor__]');
   if (!textarea) {
     return;
   }

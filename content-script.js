@@ -14,6 +14,13 @@ function getName(blockRoot) {
   return undefined;
 }
 
+folderName = "";
+chrome.storage.sync.get(["downloadFolder"], (result) => {
+  if (result.downloadFolder) {
+      folderName = result.downloadFolder;
+  }
+});
+
 document.body.addEventListener('click', e => {
   const button = e.target.closest('#editor_sentence_download_btn');
   if (!button) {
@@ -42,5 +49,5 @@ document.body.addEventListener('click', e => {
   if(text == '\n'){
     return;
   }
-  chrome.runtime.sendMessage({ name, text });
+  chrome.runtime.sendMessage({ name, text, folderName });
 }, true);

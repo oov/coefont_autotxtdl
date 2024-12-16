@@ -11,16 +11,11 @@ function getName(blockRoot) {
   if (name) {
     return name.innerText;
   }
-  // 画面幅がモバイル用のとき
-  const mobile_name = blockHeader.querySelector('[class*=Block_mobileName__]');
-  if (mobile_name) {
-    return mobile_name.innerText;
-  }
   return undefined;
 }
 
 document.body.addEventListener('click', e => {
-  const button = e.target.closest('[class*=IconButton_button__]:nth-of-type(2)');
+  const button = e.target.closest('#editor_sentence_download_btn');
   if (!button) {
     return;
   }
@@ -39,10 +34,13 @@ document.body.addEventListener('click', e => {
   if (!name) {
     return;
   }
-  const textarea = container.querySelector('[class*=SentenceEditor_textarea__]');
+  const textarea = container.querySelector('[class*=SentenceEditor_editor__]');
   if (!textarea) {
     return;
   }
   const text = textarea.innerText;
+  if(text == '\n'){
+    return;
+  }
   chrome.runtime.sendMessage({ name, text });
 }, true);

@@ -13,10 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // 設定を保存する
     saveButton.addEventListener("click", () =>{
         const name = sanitizePath(folderName.value); 
-        console.log(name);
-        chrome.storage.sync.set({downloadFolder: name}, () => {
-            window.close();
-        });
+        if(name == ""){
+            chrome.storage.sync.remove("downloadFolder", () => {
+                window.close();
+            })
+        }
+        else{
+            chrome.storage.sync.set({downloadFolder: name}, () => {
+                window.close();
+            });
+        }
     })
 
     // folderNameのテキストボックスに現在の設定を入れる

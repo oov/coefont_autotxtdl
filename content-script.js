@@ -42,5 +42,6 @@ document.body.addEventListener('click', e => {
   if(text == '\n'){
     return;
   }
+
   chrome.runtime.sendMessage({ name, text });
 }, true);

@@ -7,8 +7,8 @@ function textToURL(text) {
 }
 
 // ファイル名にできない文字列を消去する
-function sanitizeFileName(path){
-  return path.replace(/[\x00-\x1f/\\<>:"|?*]/g, '');
+function sanitizeFileName(fileName){
+  return fileName.replace(/[\x00-\x1f/\\<>:"|?*]/g, '');
 }
 
 const getDownloadFolderPath = (() => {

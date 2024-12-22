@@ -39,7 +39,7 @@ document.body.addEventListener('click', e => {
     return;
   }
   const text = textarea.innerText;
-  if(text == '\n'){
+  if (text == '\n') {
     return;
   }
 

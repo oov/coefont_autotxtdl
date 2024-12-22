@@ -6,20 +6,9 @@ function textToURL(text) {
   });
 }
 
-// フォルダ名にできない文字列を全角文字列に置き換え
-function sanitizeText(path){
-  return path
-      .replace(/[\x00-\x1f]/g, '') // 削除する文字
-      .replace(/[/\\<>:"|?*]/g, char => ({ // 全角に置き換える文字
-        '/': '／',
-        '\\': '￥',
-        '<': '＜', '>': '＞', // <>(半角)はCoeFontStudioでは読み上げられない
-        ':': '：',
-        '"': '”',
-        '|': '｜',
-        '?': '？',
-        '*': '＊',
-      }[char]))
+// ファイル名にできない文字列を消去する
+function sanitizeFileName(path){
+  return path.replace(/[\x00-\x1f/\\<>:"|?*]/g, '');
 }
 
 const getDownloadFolderPath = (() => {
@@ -39,8 +28,8 @@ const getDownloadFolderPath = (() => {
 })();
 
 chrome.runtime.onMessage.addListener((dlinfo, sender, sendResponse) => {
-  const text = sanitizeText(dlinfo.text)
-  const basePath = `${getDownloadFolderPath()}${Date.now()}_${dlinfo.name}_${text.substring(0, 10)}`;
+  const filename = sanitizeFileName(`${Date.now()}_${dlinfo.name}_${dlinfo.text.substring(0, 10)}`);
+  const basePath = `${getDownloadFolderPath()}${filename}`;
   function onDeterminingFilename(item, callback) {
       item.filename = `${basePath}.wav`;
       callback(item);

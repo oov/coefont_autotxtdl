@@ -14,7 +14,7 @@ CoeFont Studio Auto Text Downloader は、CoeFont Studio でセリフ単体を�
 
 なおこの Chrome 拡張は、音声保存時にファイル名を変更するため "downloads" 権限を使用しています。
 
-この拡張機能は 2023-09-20 時点のサイトで動作確認しています。  
+この拡張機能は 2024-12-23 時点のサイトで動作確認しています。  
 動かなくなっている場合は Issue か Pull Request をお願いします。  
 できれば Pull Request でお願いします。
 
@@ -24,3 +24,21 @@ CoeFont Studio Auto Text Downloader は、CoeFont Studio でセリフ単体を�
 このリポジトリーを[ダウンロード](https://github.com/oov/coefont_autotxtdl/archive/refs/heads/main.zip)して解凍して、`パッケージ化されていない拡張機能を読み込む` で読み込んでください。
 
 現時点でストア掲載の予定は特にありません。
+
+オプション設定
+--------------
+
+`CoeFont Studio Auto Text Downloader` のオプションを開くと、以下の設定項目があります。
+
+![CoeFont Studio Auto Text Downloader のオプション設定画面](options.png)
+
+- 保存フォルダー
+  - ここでフォルダー名を指定するとダウンロードフォルダー内にフォルダーが作成され、その中に wav ファイルと txt ファイルが保存されるようになります。  
+  項目を空欄にするとダウンロードフォルダー直下に保存されます。
+
+Contributors
+------------
+
+- Rintaro1234
+  - サイト側の更新によって動かなくなっていたのを修正
+  - ダウンロード先フォルダー指定機能の追加

@@ -28,8 +28,8 @@ const getDownloadFolderPath = (() => {
 })();
 
 chrome.runtime.onMessage.addListener((dlinfo, sender, sendResponse) => {
-  const filename = sanitizeFileName(`${Date.now()}_${dlinfo.name}_${dlinfo.text.substring(0, 10)}`);
-  const basePath = `${getDownloadFolderPath()}${filename}`;
+  const fileName = sanitizeFileName(`${Date.now()}_${dlinfo.name}_${dlinfo.text.substring(0, 10)}`);
+  const basePath = `${getDownloadFolderPath()}${fileName}`;
   function onDeterminingFilename(item, callback) {
       item.filename = `${basePath}.wav`;
       callback(item);

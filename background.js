@@ -8,18 +8,18 @@ function textToURL(text) {
 
 // フォルダ名にできない文字列を全角文字列に置き換え
 function sanitizeText(path){
-  return path.split(/[\/\\]+/)
-      .filter(s => s != '' && s != '.' && s != '..')
-      .join("")
-      .replace(/[\x00-\x1f]/g, '')
-      .replace(/[<>:"|?*]/g, char => ({
+  return path
+      .replace(/[\x00-\x1f]/g, '') // 削除する文字
+      .replace(/[/\\<>:"|?*]/g, char => ({ // 全角に置き換える文字
+        '/': '／',
+        '\\': '￥',
         '<': '＜', '>': '＞', // <>(半角)はCoeFontStudioでは読み上げられない
         ':': '：',
         '"': '”',
         '|': '｜',
         '?': '？',
         '*': '＊',
-      }[char]));
+      }[char]))
 }
 
 const getDownloadFolderPath = (() => {

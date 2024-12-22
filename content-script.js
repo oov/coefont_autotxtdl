@@ -6,7 +6,6 @@ function getName(blockRoot) {
   if (!blockHeader) {
     return undefined;
   }
-  // 画面幅がPC用のとき
   const name = blockHeader.querySelector('[class*=SelectCoefont_name__]');
   if (name) {
     return name.innerText;
@@ -39,8 +38,9 @@ document.body.addEventListener('click', e => {
     return;
   }
   const text = textarea.innerText;
-  if(text == '\n'){
+  if (text == '\n') {
     return;
   }
+
   chrome.runtime.sendMessage({ name, text });
 }, true);

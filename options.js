@@ -8,10 +8,8 @@ function sanitizePath(path) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const folderName = document.getElementById("downloadFolder");
-  const saveButton = document.getElementById("saveButton");
-
-  // 設定を保存する
-  saveButton.addEventListener("click", () => {
+  document.querySelector("form").addEventListener("submit", e => {
+    e.preventDefault();
     const name = sanitizePath(folderName.value);
     if (name == "") {
       chrome.storage.sync.remove("downloadFolder", () => {

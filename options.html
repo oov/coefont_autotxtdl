@@ -1,27 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>CoeFont Studio Auto Text Downloader Settings</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    fieldset {
+      border-radius: 3px;
     }
-    .container {
-      margin: 20px;
+    .field label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .field .description {
+      font-size: 0.9em;
+      line-height: 1.7;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      list-style-type: none;
+    }
+    code kbd {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.2rem;
+      font-family: monospace;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <label>保存フォルダーを指定します。
-      <br>例えば「Coefont」に設定すると、ダウンロード先に「Coefont」フォルダーが作成されます。</label>
-    <br><br>
-    <input type="text" id="downloadFolder"/>
-    <div align="right">
-        <button id="saveButton">保存</button>
-    </div>
-  </div>
+  <main>
+    <form>
+      <fieldset>
+        <legend>設定</legend>
+        <div class="field">
+          <label for="downloadFolder">保存フォルダー</label>
+          <input type="text" id="downloadFolder" aria-describedby="downloadFolderDescription">
+          <div id="downloadFolderDescription" class="description">
+            例えば <code><kbd>Coefont</kbd></code> に設定すると、ダウンロードフォルダーに Coefont フォルダーが作成されます。
+          </div>
+        </div>
+      </fieldset>
+      <ul class="actions">
+        <li><button type="submit" id="saveButton">保存</button></li>
+      </ul>
+    </form>
+  </main>
   <script src="options.js"></script>
 </body>
 </html>

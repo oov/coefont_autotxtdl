@@ -13,6 +13,8 @@ function getName(blockRoot) {
   return undefined;
 }
 
+const processed = new WeakSet();
+
 document.body.addEventListener('click', e => {
   const button = e.target.closest('#editor_sentence_download_btn');
   if (!button) {
@@ -41,6 +43,14 @@ document.body.addEventListener('click', e => {
   if (text == '\n') {
     return;
   }
-
-  chrome.runtime.sendMessage({ name, text });
+  if (processed.has(button)) {
+    // Prevent double sending
+    processed.delete(button);
+    return;
+  }
+  // Cancel to ensure that the download process starts after sendMessage is completed
+  e.preventDefault();
+  e.stopPropagation();
+  processed.add(button);
+  chrome.runtime.sendMessage({ name, text }, () => button.click());
 }, true);

@@ -14,7 +14,7 @@
   },
   "manifest_version": 3,
   "name": "CoeFont Studio Auto Text Downloader",
-  "version": "1.8",
+  "version": "1.8.1",
   "permissions": ["downloads", "storage"],
   "options_ui":{
     "page": "options.html",

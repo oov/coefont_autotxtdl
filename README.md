@@ -39,6 +39,9 @@ CoeFont Studio Auto Text Downloader は、CoeFont Studio でセリフ単体を�
 Contributors
 ------------
 
+- mizuna375
+  - サイト側の更新によって動かなくなっていたのを修正
+
 - Rintaro1234
   - サイト側の更新によって動かなくなっていたのを修正
   - ダウンロード先フォルダー指定機能の追加

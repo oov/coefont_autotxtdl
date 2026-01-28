@@ -2,7 +2,7 @@ function getName(blockRoot) {
   if (!blockRoot) {
     return undefined;
   }
-  const blockHeader = blockRoot.querySelector('[class*=Block_blockHeaderRoot__]');
+  const blockHeader = blockRoot.querySelector('[class*=BlockHeader_desktopBlockHeaderRoot__], [class*=BlockHeader_mobileBlockHeaderRoot__]');
   if (!blockHeader) {
     return undefined;
   }

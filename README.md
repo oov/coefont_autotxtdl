@@ -14,7 +14,7 @@ CoeFont Studio Auto Text Downloader は、CoeFont Studio でセリフ単体を�
 
 なおこの Chrome 拡張は、音声保存時にファイル名を変更するため "downloads" 権限を使用しています。
 
-この拡張機能は 2024-12-23 時点のサイトで動作確認しています。  
+この拡張機能は 2026-01-29 時点のサイトで動作確認しています。  
 動かなくなっている場合は Issue か Pull Request をお願いします。  
 できれば Pull Request でお願いします。
 

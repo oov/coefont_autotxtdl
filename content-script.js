@@ -2,11 +2,11 @@ function getName(blockRoot) {
   if (!blockRoot) {
     return undefined;
   }
-  const blockHeader = blockRoot.querySelector('[class*=BlockHeader_desktopBlockHeaderRoot__], [class*=BlockHeader_mobileBlockHeaderRoot__]');
+  const blockHeader = blockRoot.querySelector('[class*=__desktopBlockHeaderRoot], [class*=__mobileBlockHeaderRoot]');
   if (!blockHeader) {
     return undefined;
   }
-  const name = blockHeader.querySelector('[class*=SelectCoefont_name__]');
+  const name = blockHeader.querySelector('[class*=__name]');
   if (name) {
     return name.innerText;
   }
@@ -20,14 +20,14 @@ document.body.addEventListener('click', e => {
   if (!button) {
     return;
   }
-  if (!button.closest('[class*=Sentence_action__]')) {
+  if (!button.closest('[class*=__sentence]')) {
     return;
   }
-  const container = button.closest('[role=menuitem][class*=Sentence_sentence__]');
+  const container = button.closest('[role=menuitem][class*=__sentence]');
   if (!container) {
     return;
   }
-  const block = container.closest('[role=presentation][class*=Block_block__]');
+  const block = container.closest('[role=presentation][class*=__block]');
   if (!block) {
     return;
   }
@@ -35,7 +35,7 @@ document.body.addEventListener('click', e => {
   if (!name) {
     return;
   }
-  const textarea = container.querySelector('[class*=SentenceEditor_editor__]');
+  const textarea = container.querySelector('[class*=__editor]');
   if (!textarea) {
     return;
   }

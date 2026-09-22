@@ -2,7 +2,7 @@ function getName(blockRoot) {
   if (!blockRoot) {
     return undefined;
   }
-  const name = blockRoot.querySelector('[class*=__name]');
+  const name = blockRoot.querySelector('[class*=_name]');
   if (name) {
     return name.innerText;
   }
@@ -16,14 +16,14 @@ document.body.addEventListener('click', e => {
   if (!button) {
     return;
   }
-  if (!button.closest('[class*=__sentence]')) {
+  if (!button.closest('[class*=_sentence]')) {
     return;
   }
-  const container = button.closest('[role=menuitem][class*=__sentence]');
+  const container = button.closest('[role=menuitem][class*=_sentence]');
   if (!container) {
     return;
   }
-  const block = container.closest('[role=presentation][class*=__block]');
+  const block = container.closest('[role=presentation][class*=_block]');
   if (!block) {
     return;
   }
@@ -31,7 +31,7 @@ document.body.addEventListener('click', e => {
   if (!name) {
     return;
   }
-  const textarea = container.querySelector('[class*=__editor]');
+  const textarea = container.querySelector('[class*=_editor]');
   if (!textarea) {
     return;
   }

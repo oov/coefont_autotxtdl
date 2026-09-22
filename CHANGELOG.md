@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-23
+
+- サイト側の変更により動かなくなっていたのを修正(Contributed by TBotBzura)
+
 ## 2026-02-07
 
 - サイト側の変更により動かなくなっていたのを修正(Contributed by araduke)
